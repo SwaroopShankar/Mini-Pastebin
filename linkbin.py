@@ -1,3 +1,4 @@
+from re import A
 from flask import Flask , render_template ,request , redirect , url_for 
 from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, String, DateTime
@@ -52,6 +53,10 @@ def post_user():
     db_session.refresh(bin)
     paste_url = f"{request.root_url}{bin.id}"
     return render_template("linkbin-url.html",paste_url=paste_url)
+
+@app.route('/favicon.ico') 
+def favicon(): 
+    return "<a href="/"</a>"
 
 if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
