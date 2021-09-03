@@ -56,8 +56,8 @@ def post_user():
 
 @app.route('/favicon.ico') 
 def favicon(): 
-    return "<a href="/"</a>"
+    return render_template("fevicon.html")
 
 if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
-    app.run(debug=True)
+    app.run(debug=True).z
