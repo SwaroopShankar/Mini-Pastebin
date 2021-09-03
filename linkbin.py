@@ -40,7 +40,7 @@ def show_post(post_id):
     # show the post with the given id, the id is an integer
     db_session =SessionLocal()
     b = db_session.get(Linkbin,post_id).content
-    return b
+    return render_template("edit.html",b=b)
 
 #returns the paste url when save is clicked
 @app.route('/post_user' , methods=['POST'])

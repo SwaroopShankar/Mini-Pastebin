@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkBin</title>
+</head>
+<style>
+    *{
+        margin: 0; 
+        box-sizing: border-box;
+    } 
+    h1{
+      float: left;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+    li:hover{
+        background-color: aqua;
+        border: aqua 1px solid;
+        border-radius: 5px;
+    }
+
+    body{
+        background-color: black;
+        height: 80%;
+        width: 100%;
+    }
+    li{
+        float: right;
+        padding: 0.625%;
+        margin: 0.625%;
+        display: inline;
+        list-style-type: none;
+        overflow: auto;
+        color: black;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .navbar{
+        color: black;
+        background-color: grey;
+        padding: 0.625% ;
+        overflow: auto;
+    }
+    #cred{
+         margin-left: 425px;
+    }
+    footer{
+        position: fixed;
+        bottom:0;
+        background-color: grey;
+        width: 100%;
+        padding: 0.625%;
+    }
+    form{
+        padding: 20px;
+    }
+    input{
+        border: none;
+        border-radius: 2px;
+    }
+    input:hover{
+        background-color: aqua;
+    }
+</style>
+<body>
+        <div>
+            <header class="navbar">
+                <h1>LinkBin</h1>
+                <div>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                    </ul>
+                </div>
+            </header>
+            <main>
+                <form action="/post_user" method="POST">
+                    <div id="ta">
+                        <textarea name='content' id="content" rows='30' cols='100' required>{{ b }}</textarea>
+                    </div>
+                    <div id="sub">
+                        <input type="submit" value="Save">
+                    </div>
+                </form>
+            </main>
+    <footer>
+        &#169 <b>2021</b> STARWARS
+    </footer>
+    </div>
+</body>
+</html>
