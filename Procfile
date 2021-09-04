@@ -1,1 +1,1 @@
-web: gunicorn linkbin:linkbin
+web: gunicorn linkbin:app

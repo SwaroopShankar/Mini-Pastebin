@@ -54,10 +54,6 @@ def post_user():
     paste_url = f"{request.root_url}{bin.id}"
     return render_template("linkbin-url.html",paste_url=paste_url)
 
-@app.route('/favicon.ico') 
-def favicon(): 
-    return render_template("fevicon.html")
-
 if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
     app.run(debug=True).z
