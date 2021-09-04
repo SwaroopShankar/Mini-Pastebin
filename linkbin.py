@@ -1,8 +1,8 @@
-from re import A
 from flask import Flask , render_template ,request , redirect , url_for 
 from datetime import datetime
 from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.orm import declarative_base, sessionmaker
+import uuid
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ Base = declarative_base()
 #creation of databse
 class Linkbin(Base):
     __tablename__ = "linkbin"   
-    id = Column(Integer , primary_key=True)
+    id = Column(String , primary_key=True , index=True , default = lambda:uuid.uuid4().hex)
     content = Column(String(500), nullable=False) 
     date_created = Column(DateTime , default=datetime.utcnow)
 
@@ -36,7 +36,7 @@ def about():
     return render_template("about.html")
 
 # retuns the content when the paste_url is visited
-@app.route('/<int:post_id>')
+@app.route('/<post_id>')
 def show_post(post_id):
     # show the post with the given id, the id is an integer
     db_session =SessionLocal()
@@ -56,4 +56,4 @@ def post_user():
 
 if __name__ == "__main__":
     Base.metadata.create_all(bind=engine)
-    app.run(debug=True).z
+    app.run(debug=True)
